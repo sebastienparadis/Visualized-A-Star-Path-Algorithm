@@ -1,0 +1,35 @@
+A * algorithm is a searching algorithm that searches for the shortest path between the initial and the final state.
+
+
+A* algorithm has 3 parameters:
+    g : the cost of moving from the initial cell to the current cell. Basically,it is the sum of all
+        the cells that have been visited since leaving the first cell.
+
+    h : also known as the heuristic value, it is the estimated cost of moving from the current cell
+        to the final cell. The actual cost cannot be calculated until the final cell is reached. Hence,
+        h is the estimated cost. We must make sure that there is never an over estimation of the cost.
+
+    f : it is the sum of g and h. So, f = g + h
+
+The way that the algorithm makes its decisions is by taking the f-value into account. The algorithm
+selects the smallest f-valued cell and moves to that cell. This process continues until the algorithm
+reaches its goal cell.
+
+Source: https://www.educative.io/answers/what-is-the-a-star-algorithm
+
+Notes
+This method allows for the pathfinder to take the best paths, but will not take the all short paths at the
+of the rest of the search.
+
+By checking g, we can make sure we do not backtrack needlessly by seeing that the distance from start to
+any given node is less than the path from the start, to the current location, back to that node
+
+An extension of Dijkstra's path finding algorithm.
+
+We see how close the next node is to our current location, as well as keeping in mind the distance from the
+next nodes to the final destination.
+destination
+
+###
+
+
