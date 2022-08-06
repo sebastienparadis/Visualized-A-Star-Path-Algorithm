@@ -4,9 +4,9 @@ from config import *
 
 # BlockState
 # Class to define all things blocks
-class BlockState:
+class Block:
     # CONSTRUCTOR
-    def __int__(self, block_width, row, col):
+    def __int__(self, block_width, row, col, num_rows):
         self.block_width = block_width
         self.row = row
         self.col = col
