@@ -1,4 +1,4 @@
-from Grid import *
+from Algorithm import *
 
 
 def main(screen, grid_width, num_rows):
@@ -14,8 +14,8 @@ def main(screen, grid_width, num_rows):
     # definitions
     while go:
         draw_visual(screen, grid_width, num_rows, grid)
-        for i in run.event.get():
-            if i.type == run.QUIT:  # Defined as exit button has been clicked
+        for EVENT in run.event.get():
+            if EVENT.type == run.QUIT:  # Defined as exit button has been clicked
                 go = False
 
             if started:
@@ -41,21 +41,7 @@ def main(screen, grid_width, num_rows):
                 elif left_clicks > 2:
                     block.set_obstacle()
 
-                # Instead of using this previous approach, I will simply count the number of clicks and make sure the
-                # first two are start and target, respectively
-
-                # if not start_block:
-                #     start_block = block
-                #     start_block.set_start()
-                #
-                # elif not end_block:
-                #     end_block = block
-                #     end_block.set_target()
-                #
-                # elif block != end_block and block != start_block:
-                #     block.set_obstacle()
-
-            # Thinking about using the middle or right mouse button as a function, either reset, erase, or both
+            # Thinking of using the middle or right mouse button as a function, either reset, erase, or both
 
     run.quit()  # exit PathFinder
 

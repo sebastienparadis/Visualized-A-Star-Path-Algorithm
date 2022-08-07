@@ -12,11 +12,10 @@ class Block:
         self.block_colour = None  # default grid set to black
         self.block_colour = black  # default grid set to black
         self.num_rows = num_rows
-        self.x = self.row*self.grid_width
-        self.y = self.col*self.grid_width
 
+    # Reset board
     def reset(self):
-        pass
+        self.block_colour = black
 
     # Get block position (row, column)
     def get_position(self):
@@ -57,7 +56,7 @@ class Block:
     # User creating obstacle, as defined in run format
     def draw(self, screen):
         # We need to x and y coordinates, from getters
-        run.draw.rect(screen, self.block_colour, (self.x, self.y, self.grid_width, self.grid_width))
+        run.draw.rect(screen, self.block_colour, (self.get_x_pos(), self.get_y_pos(), self.grid_width, self.grid_width))
 
     def set_start(self):
         self.block_colour = blue
