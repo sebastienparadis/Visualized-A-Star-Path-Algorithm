@@ -3,24 +3,9 @@ from BlockState import *
 
 
 # Declarations
-# set_grid
 # h (AKA heuristic/taxi cab)
 
 # Definitions
-def set_grid(grid_width, num_rows):
-    # using the BlockState class, we can add each block to a 2D array (grid) using embedded for loops
-    grid = []
-    # space taken by each block is the floor of div between grid width and total num of rows
-    space = grid_width//num_rows
-    # will append block state to this grid until grid is full
-    for i in range(num_rows):  # row
-        grid.append([])  # append nothing at the start of each row
-        for j in range(num_rows):  # col
-            # define specific block and add to list
-            grid[i].append( Block(space, i, j, num_rows) )
-
-    return grid
-
 
 # For now, not going to add any lines between grid until I test
 

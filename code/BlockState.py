@@ -5,76 +5,72 @@ from config import *
 # BlockState
 # Class to define all things blocks
 class Block:
-    # CONSTRUCTOR
-    def __int__(self, block_width, row, col, num_rows):
-        self.block_width = block_width
+    def __init__(self, grid_width, row, col, num_rows):      # CONSTRUCTOR
+        self.grid_width = grid_width
         self.row = row
         self.col = col
-        self.colour = black  # default grid set to black
+        self.block_colour = None  # default grid set to black
+        self.block_colour = black  # default grid set to black
 
-    # RESET
     def reset(self):
-        self.colour = black
+        pass
 
-    # GETTERS
     # Get block position (row, column)
     def get_position(self):
         return self.row, self.col
 
     # Get block colour (corresponds to block state)
     def get_colour(self):
-        return self.colour
+        return self.block_colour
 
     # Get y coordinate, for draw
     def get_y_pos(self):
-        return self.col*self.block_width
+        return self.col*self.grid_width
 
     # Get x coordinate, for draw
     def get_x_pos(self):
-        return self.row*self.block_width
+        return self.row*self.grid_width
 
-    # CHECKERS
     # Check if beginning position
     def is_start(self):
-        return self.colour == blue
+        return self.block_colour == blue
 
     # Check if adjacent tile is free
     def is_free(self):
-        return self.colour == white
+        return self.block_colour == white
 
     # Check is a block has been seen
     def is_passed(self):
-        return self.colour == seashell4
+        return self.block_colour == seashell4
 
     # Check if block is a set obstacle
     def is_obstacle(self):
-        return self.colour == red
+        return self.block_colour == red
 
     # Check if block is final target
     def is_target(self):
-        return self.colour == green
+        return self.block_colour == green
 
-    # SETTERS
-    # User creating obstacle, as defined in pygame format
-    def user_draw_obstacle(self, display):
+    # User creating obstacle, as defined in run format
+    def draw(self, screen):
         # We need to x and y coordinates, from getters
-        pygame.draw.rect(display, self.colour, (self.get_x_pos(), self.get_y_pos(), self.block_width, self.block_width))
+        run.draw.rect(screen, self.block_colour, (self.get_x_pos(), self.get_y_pos(), self.grid_width, self.grid_width))
 
     def set_start(self):
-        self.colour = blue
+        self.block_colour = blue
 
     # Check if adjacent tile is free
     def set_free(self):
-        self.colour = white
+        self.block_colour = white
 
     # Check is a block has been seen
     def set_passed(self):
-        self.colour = seashell4
+        self.block_colour = seashell4
 
     # Check if block is a set obstacle
     def set_obstacle(self):
-        self.colour = red
+        self.block_colour = red
 
     # Check if block is final target
     def set_target(self):
-        self.colour = green
+        self.block_colour = green

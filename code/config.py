@@ -1,15 +1,14 @@
 # Settings
 import math
-import pygame
-
-
+import pygame as run
+import pygame.mouse
 # Dimensions
 ScreenWidth = 1000            # width
 ScreenLength = ScreenWidth    # length
-screen = pygame.display.set_mode( (ScreenWidth, ScreenLength) ) # Square window, ignoring other var like resize
+screen = run.display.set_mode((ScreenWidth, ScreenLength)) # Square window, ignoring other var like resize
 
 # Text
-pygame.display.set_caption("Path Finder")
+run.display.set_caption("Path Finder")
 
 # Colours
 # https://www.webucator.com/article/python-color-constants-module/
@@ -19,14 +18,15 @@ black = (0, 0, 0)
 red = (255, 0, 0)
 green = (0, 255, 0)
 blue = (0, 0, 255)
-seashell4 = (139,134,130)
+seashell4 = (139, 134, 130)
+silver = (192, 192, 192)
 
-
-colourConversions = {
+Conversions = {
     white: 0,
     black: 1,
     red: 2,
     green: 3,
     blue: 4,
     seashell4: 5,
+    silver: 6
 }
