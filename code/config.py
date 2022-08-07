@@ -3,9 +3,10 @@ import math
 import pygame as run
 import pygame.mouse
 # Dimensions
-ScreenWidth = 1000            # width
+ScreenWidth = 800            # width
 ScreenLength = ScreenWidth    # length
-screen = run.display.set_mode((ScreenWidth, ScreenLength)) # Square window, ignoring other var like resize
+screen = run.display.set_mode((ScreenWidth, ScreenLength))  # Square window, ignoring other var like resize
+num_rows_config = 30
 
 # Text
 run.display.set_caption("Path Finder")

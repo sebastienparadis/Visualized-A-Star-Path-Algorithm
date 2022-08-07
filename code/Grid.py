@@ -13,7 +13,7 @@ def set_grid(grid_width, num_rows):
         grid.append([])  # append nothing at the start of each row
         for j in range(num_rows):  # col
             # define specific block and add to list
-            grid[i].append(Block(grid_width, j, i, num_rows))
+            grid[i].append(Block(space, j, i, num_rows))
 
     return grid
 
@@ -28,30 +28,31 @@ def draw_grid_lines(screen, grid_width, num_rows):
     #   O O O           O|O|O
 
     space = grid_width//num_rows
-    index_i = 0
+    i_index = 1
     for i in range(num_rows):
         # run.draw.line(surface type, colour, start, end)
-        index_j = 0
-        run.draw.line(screen, silver, (0, index_i*space), (grid_width, index_i*space))
-        index_i += 1
-        index_j = 0
+        j_index = 1
+        run.draw.line(screen, silver, (0, i_index*space), (grid_width, i_index*space))
         for j in range(num_rows):
-            run.draw.line(screen, silver, (index_j * space, 0), (grid_width, index_i * space))
-            index_j += 1
+            run.draw.line(screen, silver, (j_index * space, 0), (j_index * space, grid_width))
+            j_index += 1
+        i_index += 1
 
 
 # Draw Visual Grid - Adds all individual blocks to default grid
-def draw_visual_grid(screen, grid_width, num_rows, grid):
-    default_default_screen(screen, grid_width, num_rows, grid)
+def draw_visual(screen, grid_width, num_rows, grid):
+    screen.fill(black)
     for i in grid:      # row
         for j in i:     # block
             # using the methods in Block class, draw every block into grid
             j.draw(screen)
+
+    draw_grid_lines(screen, grid_width, num_rows)
     run.display.update()
 
 
 # Draw Default Screen - Creates blank grid with separating lines
-def default_default_screen(screen, grid_width, num_rows, grid):
+def default_screen(screen, grid_width, num_rows, grid):
     screen.fill(black)
     draw_grid_lines(screen, grid_width, num_rows)
 
@@ -59,5 +60,4 @@ def default_default_screen(screen, grid_width, num_rows, grid):
 # Find Mouse - Returns location of mouse when click input
 def find_mouse(position, grid_width, num_rows):
     space = grid_width//num_rows
-    # position will be input as (y, x), since row ~= y and col ~= x
-    return  position[0] // space,  position[1] // space
+    return position[1] // space,  position[0] // space

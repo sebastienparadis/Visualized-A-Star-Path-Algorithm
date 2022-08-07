@@ -11,6 +11,9 @@ class Block:
         self.col = col
         self.block_colour = None  # default grid set to black
         self.block_colour = black  # default grid set to black
+        self.num_rows = num_rows
+        self.x = self.row*self.grid_width
+        self.y = self.col*self.grid_width
 
     def reset(self):
         pass
@@ -37,7 +40,7 @@ class Block:
 
     # Check if adjacent tile is free
     def is_free(self):
-        return self.block_colour == white
+        return self.block_colour == red
 
     # Check is a block has been seen
     def is_passed(self):
@@ -45,7 +48,7 @@ class Block:
 
     # Check if block is a set obstacle
     def is_obstacle(self):
-        return self.block_colour == red
+        return self.block_colour == white
 
     # Check if block is final target
     def is_target(self):
@@ -54,14 +57,14 @@ class Block:
     # User creating obstacle, as defined in run format
     def draw(self, screen):
         # We need to x and y coordinates, from getters
-        run.draw.rect(screen, self.block_colour, (self.get_x_pos(), self.get_y_pos(), self.grid_width, self.grid_width))
+        run.draw.rect(screen, self.block_colour, (self.x, self.y, self.grid_width, self.grid_width))
 
     def set_start(self):
         self.block_colour = blue
 
     # Check if adjacent tile is free
     def set_free(self):
-        self.block_colour = white
+        self.block_colour = red
 
     # Check is a block has been seen
     def set_passed(self):
@@ -69,7 +72,7 @@ class Block:
 
     # Check if block is a set obstacle
     def set_obstacle(self):
-        self.block_colour = red
+        self.block_colour = white
 
     # Check if block is final target
     def set_target(self):
