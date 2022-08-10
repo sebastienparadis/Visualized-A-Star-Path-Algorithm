@@ -17,14 +17,6 @@ def main(screen, grid_width, num_rows):
             if EVENT.type == RUN.QUIT:  # Defined as exit button has been clicked
                 pathfinding = False
 
-            # Conditions to run A*:
-            # If the user pressed ENTER & the algorithm is has not started yet (avoid error)
-            # If the algorithm is started, it will continue
-
-            # once a user left-clicks their mouse, need to determine what the intention is
-            # If it is the first click, it is the start.
-            # if it is the second click, it is the end.
-            # Otherwise, it is a barrier
             if RUN.mouse.get_pressed()[0]:  # left-click
                 # left_clicks += 1
                 x, y = find_mouse(RUN.mouse.get_pos(), grid_width, num_rows)
@@ -43,18 +35,6 @@ def main(screen, grid_width, num_rows):
                 elif block is not target and block is not start_block:
                     block.set_obstacle()
 
-                    # elif left_clicks == 2:
-                    #     RUN.time.wait(50)  # avoids double-click
-                    #     target_block = block
-                    #     target_block.set_target()
-                    #
-                    # elif left_clicks == 3:
-                    #     RUN.time.wait(50)
-                    #     block.set_obstacle()
-                    #
-                    # elif left_clicks > 3:
-                    #     RUN.time.wait(50)
-                    #     block.set_obstacle()
 
             elif RUN.mouse.get_pressed()[1]:  # use right-click to remove obstacles
                 x, y = find_mouse(RUN.mouse.get_pos(), grid_width, num_rows)  # returns mouse location
@@ -65,17 +45,6 @@ def main(screen, grid_width, num_rows):
                 elif block == target:
                     target = None  # this way, if we remove the start block AND the target block, the next one we place will still be the new start
 
-            # elif pygame.mouse.get_pressed()[2]:  # use middle click to remove start and end simultaneously
-            #     x, y = find_mouse(pygame.mouse.get_pos(), grid_width, num_rows)  # returns mouse location
-            #     block = grid[x][y]
-            #     if block.is_target() or block.is_start():
-            #         left_clicks = 0  # now, the next press will be the new target
-            #         start_block.reset()
-            #         start_block = None
-            #         target_block.reset()
-            #         target_block = None
-            #     else:
-            #         pass
 
             if EVENT.type == RUN.KEYDOWN:  # runs the game
                 if EVENT.key == RUN.K_RETURN and start_block and target:  # start game with RETURN key

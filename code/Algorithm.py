@@ -3,7 +3,6 @@ from Functions import *
 
 # Algorithm functions and helper functions
 
-
 # #1.  Initialize the open list
 # 2.  Initialize the closed list
 #     put the starting node on the open
