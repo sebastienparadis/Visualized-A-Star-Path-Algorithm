@@ -1,1 +1,1 @@
-# A* Path-Finder Algorithm Visualize
+# Visualized A* Path-Finding Algorithm
