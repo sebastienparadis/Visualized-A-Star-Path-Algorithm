@@ -1,11 +1,5 @@
 Dev Notes
 ---------
-Progress:
-    - Creating visuals while keeping in mind eventual A* algorithm implementation.
-    - Will be using colour coding to know the state of any given block, in order to more effectively work with A*
-    - Created class that defines a given block
-
-
 For the algorithm, will need to check adjacent blocks
 
 
@@ -46,8 +40,3 @@ Notes
 Inspiration
     After starting, gained inspiration from javidx9, where the user can create the obstacles by clicking on blocks.
     Will implement this as part of this project
-
-
-
-Dev
-    For algorithm, need functions like has_Been_Touched(), position(), start(), finish(), is_free(), is_obstacle()

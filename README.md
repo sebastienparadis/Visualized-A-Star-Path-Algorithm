@@ -1,1 +1,1 @@
-# Path-Finder
+# A* Path-Finder Algorithm Visualize
