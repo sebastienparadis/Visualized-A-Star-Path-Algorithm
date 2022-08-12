@@ -1,6 +1,6 @@
 # Visualized A* Path-Finding Algorithm
 
-This visualization of the A* Path-Finding ALgorithm invites users to set a start point and an end point, then draw any configuration of obstacles they want. The user can modify the dimensions, # of rows and columns, and create complex mazes or puzzles. Regardless, the A* Path Finding Algorithm will search the grid, finding the shortest path from start to end.
+This visualization of the A* Path-Finding Algorithm invites users to set a start point and an end point, then draw any configuration of obstacles they want. The user can modify the dimensions, # of rows and columns, and create complex mazes or puzzles. Regardless, the A* Path Finding Algorithm will search the grid, finding the shortest path from start to end.
 
 
 **Complex Maze:**
